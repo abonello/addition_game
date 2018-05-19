@@ -1,0 +1,13 @@
+{
+    "user1": {
+        "username": "user1",
+        "password": "1234",
+        "total_points": 0
+    },
+        
+    "user2": {
+        "username": "user2",
+        "password": "2345",
+        "total_points": 0
+    }
+}

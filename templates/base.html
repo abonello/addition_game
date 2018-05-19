@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--<meta id="my-data" info= "{{ info }}">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/styles.css" />
+</head>
+<body>
+    <!--Store Session Number-->
+    {% set sessNo = thisUser.session %}
+    
+    <div class="container">
+        <div class="row header">
+            <div id="header-row" class="row">
+                <div class="col col-sm-12 col-md-6">
+                    <h1>Addition Game</h1>
+                    <!-- Registration Login Form-->
+                    {%if thisUser=="" %}
+                    <!--Do nothing-->
+                    {%else%}
+                        {%if thisUser.is_logged %}
+                            <form class="align-right" method="POST" action='{{ url_for('logout', currentUser=thisUser.username, sessionNo=sessNo) }}'>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default form-align" name="logout" type="submit" value="logout">Logout</button>
+                                </div>
+                            </form>
+                        {% elif not thisUser.is_logged %}
+                            <form class="align-right" method="POST" action="/login">
+                                <div class="form-group login">
+                                    <input type="text" class="form-control form-username form-align" name="username" id="username" placeholder="username" autocomplete="off" required>
+                                    <input type="password" class="form-control form-password form-align" name="password" id="password" placeholder="password" autocomplete="off" required>
+                                    <button type="submit" class="btn btn-default form-align" name="login" type="submit" value="login" alt="login">Login</button>
+                                    <!--<button type="submit" class="btn btn-default form-align" name="register" type="submit" value="register">Register</button>-->
+                                </div>
+                            </form>
+                            <form class="align-right" method="POST" action="/prepare_register">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default form-align" name="register" type="submit" value="register">Register</button>
+                                </div>
+                            </form>
+                        {% endif %}
+                        
+                        
+                        <!--<p>Is this user logged in?</p>-->
+                        <!--<p>{{ thisUser.is_logged }}</p>-->
+                    {%endif%}
+                </div>
+                {%if thisUser.is_logged %}
+                    <div id="right-container" class="col col-sm-12 col-md-6">
+                        <div id="total_points">
+                            Total: {{ thisUser.total_points}}
+                        </div>
+                        <div id="points">
+                             {{thisUser.points_this_game}} POINTS
+                        </div>
+                    </div>
+                {%endif%}
+            </div>
+            <!-- =====================================     -->
+            <div class="row">
+                <h2>User: {{ thisUser.username }}</h2>
+                <p>Session: {{ thisUser.session }}</p>
+                <div class="red">{{ message1 }}</div>
+                <hr>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <section class="container">
+            {% block content %} 
+            {% endblock %}
+        </section>
+        
+
+        
+    </div>
+    
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap core JavaScript -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    <!-- Custom scripts for this template -->
+    <script>
+        $(document).ready( function(){
+            console.log("ready!");
+            $("#pw-confirm").keyup(checkPasswordMatch);
+            
+        });
+        
+        function checkPasswordMatch() {
+            var pwd1 = $("#password").val();
+            var pwd2 = $("#pw-confirm").val();
+        
+            if (pwd1 != pwd2)
+                // $("#pw-confirm").html("Passwords do not match!");
+                console.log("Passwords do not match!");
+            else {
+                // $("#pw-confirm").html("Passwords match.");
+                console.log("Passwords match!")
+                $("#register_btn").prop("disabled", false);
+            }
+        }
+    </script>
+    
+
+</body>
+</html>

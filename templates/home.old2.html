@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <meta id="my-data" info= "{{ info }}">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="static/css/styles.css" />
+</head>
+<body>
+    <h1>Addition Game</h1>
+    <!--<p>Username: <strong>{{ user1.username }}</strong><br>-->
+    <!--Password: {{ user1.password }}<br>-->
+    <!--Logged In: {{ user1.is_logged }}<br>-->
+    <!--Number: {{ user1.number }}<br>-->
+    <!--Reference: {{ user1.reference() }}</p>-->
+    <!--<p>Username: <strong>{{ user2.username }}</strong><br>-->
+    <!--Password: {{ user2.password }}<br>-->
+    <!--Number: {{ user2.number }}    </p>-->
+    <!--<h2>Number of logged in users: {{ user.logged_users }}</h2>-->
+
+     <!-- =====================================     -->
+    <h1>User: {{ thisUser.username }}</h1>
+    <hr>
+    <h2>Add the following numbers</h2>
+    <!--<div class="form-group login">-->
+    <!--    <ul>-->
+    <!--        <li id="add1">{{ numbers[0] }}</li>-->
+    <!--        <li id="add2">{{ numbers[1] }}</li>-->
+    <!--    </ul>-->
+    <!--</div>-->
+
+    <form class="play_game" method="POST" action='{{ url_for('game', currentUser=thisUser.username) }}'>
+        <!--<label class="control-label col-sm-2" for="username" value="{{  thisUser.username }}" id="username"></label>-->
+        <!--<label class="control-label col-sm-2" for="username">Answer:</label>-->
+        <!--<input type="text" class="form-control" id="usr">-->
+        <!--<button id="answer" type="button" class="btn btn-default form-align btn-pass-width" alt="Submit" value="submit">Submit Answer</button>-->
+        <button id="play" type="submit" class="btn btn-default form-align btn-pass-width" alt="Play" value="play">Play</button>
+    </form>
+
+    <!--<div id="info5" class="info"></div>-->
+    <!--<div id="correct" class="info"></div>-->
+    
+    
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap core JavaScript -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    <!-- Custom scripts for this template -->
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("#answer").click(function() {
+                var num = $("#usr").val();
+                var add1 = $("#add1").text();
+                var add2 = $("#add2").text();
+                
+                $("#info5").html(num);
+                console.log(num);
+                console.log(add1);
+                console.log(add2);
+                // console.log($("#addition".valueOf()["value"]));
+                if (parseInt(num) == parseInt(add1) + parseInt(add2))
+                    $("#correct").html("Answer is correct");
+                else
+                    $("#correct").html("Answer is wrong");
+            });
+           
+        });
+        
+        
+        
+        
+        
+
+    </script>
+</body>
+</html>

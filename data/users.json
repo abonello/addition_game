@@ -1,0 +1,36 @@
+{
+    "user1": {
+        "password": "1234",
+        "results": [
+            20,
+            0,
+            20,
+            10
+        ],
+        "total_points": 50,
+        "username": "user1"
+    },
+    "user2": {
+        "password": "2345",
+        "results": [
+            30,
+            20,
+            30,
+            25,
+            20,
+            10,
+            40,
+            10,
+            25,
+            35
+        ],
+        "total_points": 45,
+        "username": "user2"
+    },
+    "user3": {
+        "password": "1222",
+        "results": [],
+        "total_points": 0,
+        "username": "user3"
+    }
+}

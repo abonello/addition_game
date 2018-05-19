@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Addition Game</h1>
+        
+             <!-- =====================================     -->
+            <h2>User: {{ thisUser.username }}</h2>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col col-sm-6">
+                <h2>Answer</h2>
+                <p>The answer you submitted is <strong>{{ answer }}</strong>.<br><br>
+                You were asked to add <strong>{{ nums[0] }}</strong> and 
+                <strong>{{ nums[1] }}</strong> and your answer is <strong>{{ message }}</strong>.</p>
+            </div>
+            <div class="col col-sm-6">
+                <form class="play_game" method="POST" action='{{ url_for('nextGame', currentUser=thisUser.username, sessionNo=sessNo) }}'>
+                    <!--<label class="control-label col-sm-2" for="username">Answer:</label>-->
+                    <button id="answer" type="submit" class="btn btn-default form-align btn-pass-width btn-next" alt="Submit" value="submit">Next Game</button>
+                </form>
+            </div>
+        </div>
+    
+    </div>
+    
+    <!--"{}, answer submitted is {}. You were asked to add {} and {} and your answer is {}.".format(currentUser, answer, num1, num2, message)-->
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap core JavaScript -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    <!-- Custom scripts for this template -->
+</body>
+</html>

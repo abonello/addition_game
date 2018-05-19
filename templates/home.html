@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="row">
+            {% if thisUser.is_logged %}
+                <h2>Add the following numbers</h2>
+            {% endif %}
+            
+            <h3>{{message}}</h3>
+        
+            <!--<form class="play_game" method="POST" action='{#{ url_for('game', currentUser=thisUser.username) }#}'>-->
+            {% if thisUser.is_logged %}
+                <form class="play_game" method="POST" action='{{ url_for('createNewGame', currentUser=thisUser.username, sessionNo=sessNo) }}'>
+                    <button id="play" type="submit" class="btn btn-default form-align btn-pass-width" alt="Play" value="play">Play</button>
+                </form>
+            {% endif %}
+        </div>
+        <div class="row">
+            {% if thisUser.is_logged %}
+                <h2>Results for Games Played</h2>
+                <ul>
+                    {% for point in thisUser.games_played %}
+                        <li>{{point}}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+{% endblock %}

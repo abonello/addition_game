@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/styles.css" />
+</head>
+<body>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Addition Game</h1>
+        
+             <!-- =====================================     -->
+            <h2>User: {{ thisUser.username }}</h2>
+            <hr>
+        </div>
+    
+    
+        <!--<h1>Current user is {{ thisUser.username }}.</h1>-->
+        <!--Index is now : {{ index }}<br>-->
+        <div class="row">
+            <div class="row center">
+                <h2>Add the following numbers:</h2>
+            </div>
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="form-group login">
+                        <ul class="list-unstyled">
+                            <li id="add1" class="num col col-sm-6">{{ nums[0] }}</li>
+                            <li id="add2" class="num col col-sm-6">{{ nums[1] }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col col-sm-6">
+                    <form class="play_game" method="POST" action='{{ url_for('checkAnswer', currentUser=thisUser.username) }}'>
+                        <label class="control-label col-sm-2" for="username">Answer:</label>
+                        <label class="control-label col-sm-12"><strong></strong>{{ message }}</strong></label>
+                        <input type="text" class="form-control" name="ans" id="ans">
+                        <button id="answer" type="submit" class="btn btn-default form-align btn-pass-width" alt="Submit" value="submit">Submit Answer</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <h3>Game {{ index }} of 10</h3>
+        
+    
+        <!--Add the following: {}, {}".format(currentUser, user1_game.numbers[user1_game.index], user1_game.numbers[user1_game.index + 1])-->
+    </div>
+    
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap core JavaScript -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    <!-- Custom scripts for this template -->
+</body>
+</html>

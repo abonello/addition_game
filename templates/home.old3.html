@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--<meta id="my-data" info= "{{ info }}">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Addition Game</h1>
+            
+        <!-- Registration Login Form-->
+            {%if thisUser.is_logged %}
+                <form class="align-right" method="POST" action='{{ url_for('logout', currentUser=thisUser.username) }}'>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default form-align" name="logout" type="submit" value="logout">Logout</button>
+                    </div>
+                </form>
+            {% elif not thisUser.is_logged %}
+                <form class="align-right" method="POST" action="/login">
+                    <div class="form-group login">
+                        <input type="text" class="form-control form-username form-align" name="username" id="username" placeholder="username">
+                        <button type="submit" class="btn btn-default form-align" name="login" type="submit" value="login" alt="login">Login</button>
+                        <!--<button type="submit" class="btn btn-default form-align" name="register" type="submit" value="register">Register</button>-->
+                    </div>
+                </form>
+                <form class="align-right" method="POST" action="/prepare_register">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default form-align" name="register" type="submit" value="register">Register</button>
+                    </div>
+                </form>
+            {% endif %}
+            
+            <p>Is this user logged in?</p>
+            <p>{{ thisUser.is_logged }}</p>
+        
+             <!-- =====================================     -->
+            <h2>User: {{ thisUser.username }}</h2>
+            <div class="red">{{ message1 }}</div>
+            <hr>
+        </div>
+        
+        
+        
+        <div class="row">
+            <h2>Add the following numbers</h2>
+            
+            <h3>{{message}}</h3>
+        
+            <!--<form class="play_game" method="POST" action='{#{ url_for('game', currentUser=thisUser.username) }#}'>-->
+            <form class="play_game" method="POST" action='{{ url_for('createNewGame', currentUser=thisUser.username) }}'>
+                <button id="play" type="submit" class="btn btn-default form-align btn-pass-width" alt="Play" value="play">Play</button>
+            </form>
+        </div>
+        
+        
+        
+        
+    </div>
+    
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap core JavaScript -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    <!-- Custom scripts for this template -->
+    
+
+</body>
+</html>

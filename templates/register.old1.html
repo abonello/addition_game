@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/styles.css" />
+</head>
+<body>
+    
+
+    <div class="row">
+        <!--<p>User: {#{ app_info["username"] }#}</p>-->
+        <!--<p>All users: {#{ app_info["allusers"] }#}</p>-->
+        <!--<p>Logged: {#{ app_info["logged"] }#}</p>-->
+        <div class="col-md-12 main min-height-main">
+            <h3>Register</h3>
+
+            <p class="red">{{ message }}</p>
+            
+            <!-- Registration Login Form-->
+            <form class="registration" method="POST" action="/register">
+                <div class="form-group">
+                    <input type="text" class="form-control form-username form-align" name="username" id="username" placeholder="username" value="{{username}}">
+                    <button type="submit" class="btn btn-default form-align {{ buttons["check_active"] }}" name="check" type="submit" value="login">Check Username Available</button>
+                </div>
+                <!--<div class="red">{#{ username_feedback }#}</div>-->
+                <button type="submit" class="btn btn-default form-align btn-width {{ buttons["register_active"] }}" name="register" type="submit" value="register">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap core JavaScript -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    <!-- Custom scripts for this template -->
+    
+</body>
+</html>

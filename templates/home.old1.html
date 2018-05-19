@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <meta id="my-data" info= "{{ info }}">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="static/css/styles.css" />
+</head>
+<body>
+    <h1>Addition Game</h1>
+    <p>Username: <strong>{{ user1.username }}</strong><br>
+    Password: {{ user1.password }}<br>
+    Logged In: {{ user1.is_logged }}<br>
+    Number: {{ user1.number }}<br>
+    Reference: {{ user1.reference() }}</p>
+    <p>Username: <strong>{{ user2.username }}</strong><br>
+    Password: {{ user2.password }}<br>
+    Number: {{ user2.number }}    </p>
+    <h2>Number of logged in users: {{ user.logged_users }}</h2>
+    <!--<form class="play_game" method="POST" action="/game">-->
+    <!--<button id="username" type="button" class="dismiss btn btn-default form-align btn-pass-width" alt="Dismiss" value="dismiss">Username</button>-->
+    <!--<button id="password" type="button" class="dismiss btn btn-default form-align btn-pass-width" alt="Dismiss" value="dismiss">Password</button>-->
+    <!--<button id="is_logged" type="button" class="dismiss btn btn-default form-align btn-pass-width" alt="Dismiss" value="dismiss">Logged?</button>-->
+    <!--</form>-->
+    <!--<div id="change">-->
+    <!--  Click here-->
+    <!--</div>-->
+    <!--<hr>-->
+    <!--<div id="info1" class="info"></div>-->
+    <!--<div id="info2" class="info"></div>-->
+    <!--<div id="info3" class="info"></div>-->
+    <hr>
+    <h2>Add the following numbers</h2>
+    
+    <form class="align-right" method="POST" action="/login">
+        <div class="form-group login">
+            <ul>
+                <li>{{ numbers[0] }}</li>
+                <li>{{ numbers[1] }}</li>
+            </ul>
+            
+            
+            
+            <label class="control-label col-sm-2" for="username">Username:</label>
+            <input type="text" class="form-control form-username form-align" name="username" id="username" placeholder="username">
+        </div>
+    </form>
+    <p>Answer : </p>
+    <div id="info4" class="info"></div>
+    <form class="play_game" method="POST" action="/game">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Enter your answer: </span>
+            <input id="addition" type="text" class="form-control" placeholder="answer" aria-describedby="basic-addon1">
+        </div>
+        <input type="text" class="form-control" id="usr">
+        <button id="answer" type="button" class="dismiss btn btn-default form-align btn-pass-width" alt="Dismiss" value="dismiss">Submit Answer</button>
+    </form>
+    <div id="info5" class="info"></div>
+    
+    
+    
+    
+    
+    <hr>
+    <div id="target">
+      Click here
+    </div>
+    <div id="other">
+      Trigger the handler
+    </div>
+    
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap core JavaScript -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    <!-- Custom scripts for this template -->
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("#username").click(function() {
+                $("#info1").text("{{ user1.username }}");
+            });
+            $("#password").click(function() {
+                $("#info2").text("{{ user1.password }}");
+            });
+            $("#is_logged").click(function() {
+                $("#info3").text("{{ user1.is_logged }}");
+            });
+            
+            // $("#answer").click(function() {
+            //     $("#info5").text($("#addition".valueOf("value")));
+            //     console.log($("#addition".valueOf()["value"]));
+            // });
+            $("#answer").click(function() {
+                var num = $("#usr").val();
+                $("#info5").html(num);
+                console.log(num);
+                // console.log($("#addition".valueOf()["value"]));
+            });
+           
+        });
+        
+        
+        
+        
+        
+
+    </script>
+</body>
+</html>

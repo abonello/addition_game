@@ -1,0 +1,94 @@
+body {
+    background: #cacae8;
+}
+
+.red {
+    color: red;
+    font-weight: bolder;
+    font-size: 2em;
+}
+
+#header-row {
+    /*min-height: 100px;*/
+}
+
+#right-container {
+    height: 100px;
+}
+
+#total_points {
+    display: flex;
+    background: yellow;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: red;
+    font-weight: bolder;
+    margin-top: 20px;
+}
+
+#points {
+    display: flex;
+    background: yellow;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: red;
+    font-weight: bolder;
+    margin-top: 0px;
+}
+
+#mark {
+    margin-top: 50px;
+    height: 140px;
+    width: 140px;
+    margin-right: 30px;
+}
+
+
+.btn-deactivated {
+    color: grey;
+}
+
+.btn-hide {
+    display: none;
+    background-color: blue;
+}
+
+
+.info {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    border: 1px solid black;
+    line-height: 50px;
+    box-sizing: border-box;
+}
+
+/*li .num {*/
+/*    list-style-type: none;*/
+/*    background: red;*/
+/*}*/
+
+.num {
+    font-size: 3em;
+    color: red;
+}
+
+.btn-default, .btn-default:focus {
+    color: #e7ff5a;
+    background-color: #383877;
+    padding: 10px 50px;
+}
+
+.btn-default:hover {
+    color: #ffcb5a;
+    background-color: #446a8a;
+}
+
+.btn-next {
+    margin: 50px 0;
+}
+

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 main min-height-main">
+            <h3>Register</h3>
+
+            <p class="red">{{ message }}</p>
+            
+            <!-- Registration Login Form-->
+            <form class="registration" method="POST" action="/register">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control form-username form-align" name="username" id="username" placeholder="username" value="{{username}}" autocomplete="off" required>
+                    <label for="password" class="{{ buttons["register_active"] }}">Password: </label>
+                    <input type="password" class="form-control form-username form-align {{ buttons["register_active"] }}" name="password" id="password" placeholder="password" autocomplete="off" value="" {{ attr }}>
+                    <label for="password" class="{{ buttons["register_active"] }}">Password again:</label>
+                    <input type="password" class="form-control form-username form-align {{ buttons["register_active"] }}" name="pw-copy" id="pw-confirm" placeholder="password" autocomplete="off" value="" {{ attr }}>
+                    <button type="submit" class="btn btn-default form-align {{ buttons["check_active"] }}" name="check" value="login">Check Username Available</button>
+                </div>
+                <!--<div class="red">{#{ username_feedback }#}</div>-->
+                <button id="register_btn" type="submit" class="btn btn-default form-align btn-width {{ buttons["register_active"] }}" name="register" type="submit" value="register" disabled>Register</button>
+            </form>
+        </div>
+    </div>
+    
+    
+    
+{% endblock %}
