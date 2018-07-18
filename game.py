@@ -71,16 +71,13 @@ def home():
     # allusers = read_from_file("users.txt")
     allusers = json.loads(read_from_file("users.json"))
     
-    
     ''' For Testing only '''
     for username in dict(allusers):
         print(allusers[username]['username'])
         print(allusers[username]['password'])
     
     ''' End testing '''
-    
-    
-    
+
     thisUser=defaultUser
     return render_template("home.html", thisUser=thisUser)
     

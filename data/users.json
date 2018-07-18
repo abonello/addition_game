@@ -1,36 +1,54 @@
 {
     "user1": {
-        "password": "1234",
+        "password": "1234", 
         "results": [
-            20,
-            0,
-            20,
+            20, 
+            0, 
+            20, 
             10
-        ],
-        "total_points": 50,
+        ], 
+        "total_points": 50, 
         "username": "user1"
-    },
-    "user2": {
-        "password": "2345",
+    }, 
+    "user11": {
+        "password": "1111", 
         "results": [
-            30,
-            20,
-            30,
-            25,
-            20,
-            10,
-            40,
-            10,
-            25,
+            20
+        ], 
+        "total_points": 20, 
+        "username": "user11"
+    }, 
+    "user2": {
+        "password": "2345", 
+        "results": [
+            30, 
+            20, 
+            30, 
+            25, 
+            20, 
+            10, 
+            40, 
+            10, 
+            25, 
             35
-        ],
-        "total_points": 45,
+        ], 
+        "total_points": 45, 
         "username": "user2"
-    },
+    }, 
     "user3": {
-        "password": "1222",
-        "results": [],
-        "total_points": 0,
+        "password": "1222", 
+        "results": [], 
+        "total_points": 0, 
         "username": "user3"
+    }, 
+    "user88": {
+        "password": "1111", 
+        "results": [
+            30, 
+            30, 
+            40
+        ], 
+        "total_points": 100, 
+        "username": "user88"
     }
 }
